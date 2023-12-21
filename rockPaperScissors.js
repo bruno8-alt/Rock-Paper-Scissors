@@ -1,30 +1,23 @@
-
 function getComputerChoice(){
  let Choices = ["Rock","Paper", "Scissors"]; 
- let result = Choices[Math.floor(Math.random()* Choices.length)]; 
+ let result = Choices[Math.floor(Math.random()* Choices.length)];
+ result = result.toLowerCase();
  return result;
 }
 
 function playRound(playerSelection, computerSelection){
-    if(computerSelection === "Rock"){
-        console.log("Draw");
-        
+    if(playerSelection === computerSelection){
+        return `It is a Draw!`;
     }
-    else if(computerSelection === "Paper"){
-        console.log("YOU LOSE! Paper beats Rock."); 
-       
+    else if(playerSelection === "rock" && computerSelection === "scissors"){
+        return  `YOU WIN! ${playerSelection} beats ${computerSelection}.`;       
     }
     else{
-        console.log("YOU WIN! Rock beats Scissors.");  
-       
-    } 
-    return;           
+        return `YOU LOSE! ${computerSelection} beats ${playerSelection}.`;    
+    }    
 }
-const playerSelection = "Rock";
+const playerSelection = "rock";
 const computerSelection = getComputerChoice();
-console.log(playerSelection);
-console.log(getComputerChoice());
+console.log("Player choice =" + " " + playerSelection);
+console.log("Computer choice =" + " " + computerSelection);
 console.log(playRound(playerSelection, computerSelection));
-
-
-//‘Rock’, ‘Paper’ or ‘Scissors’.
