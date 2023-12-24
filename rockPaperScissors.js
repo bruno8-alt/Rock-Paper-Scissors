@@ -20,13 +20,14 @@ function playRound(playerSelection, computerSelection){
             (playerSelection === "paper" && computerSelection === "scissors")
         ) {
         return `YOU LOSE! ${computerSelection} beats ${playerSelection}.`;    
-    }}
-function game(){
-let playerScore = 0;
-let computerScore = 0;
-    for(i = 0; i < 5; i++)
-     {
-     let roundWinner = playRound(playerSelection, getComputerChoice());
+    }
+    else{} 
+    }
+let playerScore = Number();
+let computerScore = Number();
+
+function game(playerSelection, computerSelection){
+     let roundWinner = playRound(playerSelection, computerSelection);
      console.log(roundWinner);
      if(roundWinner.includes("WIN")){
         playerScore++;
@@ -34,17 +35,20 @@ let computerScore = 0;
       else if(roundWinner.includes("LOSE")){
         computerScore++; 
     }}
-    if(playerScore > computerScore){
-        return `PLAYER WON!  Score: ${playerScore}-${computerScore}.`;
+for(i = 0; i < 5; i++)
+     {
+        playerSelection = prompt("Enter either Rock, Paper or Scissors to play a random of 5 matches against the Computer!");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log(game(playerSelection, computerSelection));      
      }
-    else if(playerScore < computerScore){
-        return `COMPUTER WON! Score: ${computerScore}-${playerScore}.`; 
+if(playerScore > computerScore){
+        console.log(`PLAYER WON!  Score: ${playerScore}-${computerScore}.`);
      }
-    else{
-        return `Draw!!! Score : ${playerScore}-${computerScore}.`;
-     }}
-let playerSelection = prompt("Enter either Rock, Paper or Scissors to play a random of 5 matches against the Computer!");
-playerSelection = playerSelection.toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(game());
+else if(playerScore < computerScore){
+        console.log(`COMPUTER WON! Score: ${computerScore}-${playerScore}.`);
+     }
+else{
+        console.log(`Draw!!! Score : ${playerScore}-${computerScore}.`);
+     }
 
