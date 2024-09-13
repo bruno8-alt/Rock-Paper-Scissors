@@ -72,12 +72,12 @@ function playRound(playerSelection, computerSelection){
     }
     function displayScore(playerScore, computerScore){
         if(playerScore > computerScore){
-            paraWinner.textContent = `RESULT = !!!YOU WON!!!. ${playerScore} - ${computerScore}`
+            paraWinner.textContent = `RESULT = ${playerScore} - ${computerScore} !!!YOU WON!!!.`
             paraWinner.style.backgroundColor = "Green";
             section.appendChild(paraWinner);
         }
         else if(playerScore < computerScore){
-            paraWinner.textContent = `RESULT = You LOST!, Computer Won. ${computerScore} - ${playerScore}`;
+            paraWinner.textContent = `RESULT = ${computerScore} - ${playerScore} You LOST!, Computer Won.`;
             paraWinner.style.backgroundColor = "Red";
             section.appendChild(paraWinner);
         }
