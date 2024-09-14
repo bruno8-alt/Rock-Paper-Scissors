@@ -32,19 +32,16 @@ buttons.forEach((button) => {
     if(roundWinner.includes("WIN")){
         count++;
         playerScore++;
-    paraRound.style.color = "green";
-
+        paraRound.style.color = "green";
     }
     else if(roundWinner.includes("LOSE")){
         count++;
         computerScore++;
-    paraRound.style.color = "rgb(121, 61, 61)";
-
+        paraRound.style.color = "rgb(121, 61, 61)";
     }
     else{
         count++;
-    paraRound.style.color = "rgba(255, 255, 0, 0.76)";
-
+        paraRound.style.color = "rgba(255, 255, 0, 0.76)";
     }
     computerChoice.textContent = (count + ". ComputerSelection = " + computerSelection);
     computerChoice.style.fontWeight = "bold";
