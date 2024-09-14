@@ -7,6 +7,7 @@ function getComputerChoice(){
 let playerSelection;
 let computerSelection;
 const section = document.querySelector("section");
+const scoreBoard = document.querySelector(".score");
 const computerChoice = document.createElement("p");
 const paraRound = document.createElement("p");
 const paraWinner = document.createElement("p");
@@ -31,14 +32,24 @@ buttons.forEach((button) => {
     if(roundWinner.includes("WIN")){
         count++;
         playerScore++;
+    paraRound.style.color = "green";
+
     }
     else if(roundWinner.includes("LOSE")){
         count++;
         computerScore++;
+    paraRound.style.color = "rgb(121, 61, 61)";
+
     }
-    else{count++;}
+    else{
+        count++;
+    paraRound.style.color = "rgba(255, 255, 0, 0.76)";
+
+    }
     computerChoice.textContent = (count + ". ComputerSelection = " + computerSelection);
+    computerChoice.style.fontWeight = "bold";
     section.appendChild(computerChoice);
+    scoreBoard.textContent = `Player ${playerScore} - ${computerScore} Computer`;
     paraRound.textContent = (roundWinner);
     section.appendChild(paraRound);
     if(count===5){
@@ -72,18 +83,21 @@ function playRound(playerSelection, computerSelection){
     }
     function displayScore(playerScore, computerScore){
         if(playerScore > computerScore){
-            paraWinner.textContent = `RESULT = ${playerScore} - ${computerScore} !!!YOU WON!!!.`
-            paraWinner.style.backgroundColor = "Green";
+            paraWinner.textContent = `SCORE = ${playerScore} - ${computerScore} !!!YOU WON!!!`
+            paraWinner.classList = "";
+            paraWinner.classList.add("winner");
             section.appendChild(paraWinner);
         }
         else if(playerScore < computerScore){
-            paraWinner.textContent = `RESULT = ${computerScore} - ${playerScore} You LOST!, Computer Won.`;
-            paraWinner.style.backgroundColor = "Red";
+            paraWinner.textContent = `SCORE = You LOST ${computerScore} - ${playerScore} , Computer Won.`;
+            paraWinner.classList = "";
+            paraWinner.classList.add("loser");
             section.appendChild(paraWinner);
         }
         else{
-            paraWinner.textContent = `RESULT = DRAW! ${computerScore} - ${playerScore}`;
-            paraWinner.style.backgroundColor = "Yellow";
+            paraWinner.textContent = `SCORE = DRAW! ${computerScore} - ${playerScore}`;
+            paraWinner.classList = "";
+            paraWinner.classList.add("draw");
             section.appendChild(paraWinner);
         }}
     
